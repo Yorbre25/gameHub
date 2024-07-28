@@ -7,7 +7,7 @@ const SearchBar = () => {
       <InputLeftElement pointerEvents="none">
         <SearchIcon color="gray.300"></SearchIcon>
       </InputLeftElement>
-      <Input placeholder="Search For Game..." w="50vw"></Input>
+      <Input placeholder="Search For Game..."></Input>
     </InputGroup>
   );
 };
