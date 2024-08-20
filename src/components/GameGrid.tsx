@@ -1,32 +1,20 @@
-import { useEffect, useState } from "react";
-// import { CanceledError } from "axios";
-import gameService, { Game } from "../services/game-service";
-import { Text } from "@chakra-ui/react";
+import { Text, GridItem, SimpleGrid } from "@chakra-ui/react";
+import useGames from "../hooks/useGames";
+import GameCard from "./GameCard";
 
 const GameGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const { request, cancel } = gameService.getAll();
-    request
-      .then((res) => {
-        setGames(res.data.results);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
-    return () => cancel();
-  }, []);
+  const { games, error } = useGames();
 
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
+      <SimpleGrid minChildWidth="300px" padding="10px" spacing={10}>
         {games.map((game) => (
-          <li key={game.id}>{game.name}</li>
+          <GridItem key={game.id}>
+            <GameCard key={game.id} game={game}></GameCard>
+          </GridItem>
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 };

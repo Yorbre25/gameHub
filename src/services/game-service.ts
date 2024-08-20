@@ -1,11 +1,5 @@
+import { Game } from "../hooks/useGames";
 import apiClient from "./api-client";
-
-export interface Game {
-  id: number;
-  name: string;
-  metacritic: number;
-  background_image: string;
-}
 
 export interface FetchGamesResponse {
   count: number;

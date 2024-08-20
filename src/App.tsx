@@ -6,7 +6,10 @@ import GameGrid from "./components/GameGrid";
 function App() {
   return (
     <Grid
-      templateAreas={{ base: '"nav" "main"', lg: '"nav nav" "aside main"' }}
+      templateAreas={{
+        base: '"nav" "main"',
+        lg: '"nav nav" "aside main"',
+      }}
       // bg="gray.500"
       w="100vw"
       // h="50vw"
