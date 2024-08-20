@@ -2,11 +2,18 @@ import { useEffect, useState } from "react";
 import { CanceledError } from "axios";
 import gameService from "../services/game-service";
 
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface Game {
   id: number;
   name: string;
   metacritic: number;
   background_image: string;
+  parent_platforms: { platform: Platform }[];
 }
 
 const useGames = () => {
